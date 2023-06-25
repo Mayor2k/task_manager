@@ -99,6 +99,6 @@ async def create_task(task: schemas.TaskBase, session: AsyncSession = Depends(ge
         raise HTTPException(status_code=400, detail="User is not exist")
     return await TaskCrud(session).create_model(data=task)
 
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", port = 8000, host = "127.0.0.1", reload = True)
+#use on dev
+'''if __name__ == "__main__":
+    uvicorn.run("main:app", port = 8000, host = "127.0.0.1", reload = True)'''

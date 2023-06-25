@@ -3,18 +3,12 @@ services:
   db:
     image: postgres:15
     container_name: db_app
-    command: -p 5435
-    expose:
-      - 5435
-    env_file:
-      - .env-not-dev
+    user: postgres
   app:
+    container_name: fastapi_app
     build: 
       context: .
-    env_file:
-      - .env-not-dev
-    container_name: fastapi_app
     ports:
-      -9999:8000
+      - 9999:8000
     depends_on:
       - db
